@@ -18,6 +18,12 @@ app.set('view engine', 'ejs');
 app.use(expressSession({
   resave: false,
   saveUninitialized: false,
+  secret: "hey hey hey"
+}));
+
+app.use(expressSession({
+  resave: false,
+  saveUninitialized: false,
   secret: "heyheyehhdd"
 }));
 app.use(passport.initialize());
