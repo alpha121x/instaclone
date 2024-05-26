@@ -12,7 +12,7 @@ const userModel = require("./users");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 
-passport.use(new localStrategy(userModel.authenicate()));
+passport.use(new localStrategy(userModel.authenticate()));
 
 
 
@@ -258,7 +258,7 @@ router.post("/register", function(req, res, next) {
 
   userModel.register(userData, password)
   .then(function(){
-    passport.authenicate("local"(req, res, function(){
+    passport.authenticate("local"(req, res, function(){
       res.redirect("/profile");
     }))
   })
