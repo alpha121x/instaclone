@@ -8,6 +8,9 @@ const storyModel = require("./story");
 passport.use(new localStrategy(userModel.authenticate()));
 const upload = require("./multer");
 const utils = require("../utils/utils");
+const userModel = require("/users");
+const passport = require("passport");
+const localStraegy = require("passport-local");
 
 
 // GET
@@ -242,6 +245,7 @@ function isLoggedIn(req, res, next) {
     res.redirect("/login");
   }
 }
+
 
 
 module.exports = router;
