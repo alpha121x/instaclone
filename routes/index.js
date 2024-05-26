@@ -10,7 +10,10 @@ const upload = require("./multer");
 const utils = require("../utils/utils");
 const userModel = require("/users");
 const passport = require("passport");
-const localStraegy = require("passport-local");
+const localStrategy = require("passport-local");
+
+passport.use(new localStrategy(userModel.authenicate()));
+
 
 
 // GET
@@ -245,6 +248,21 @@ function isLoggedIn(req, res, next) {
     res.redirect("/login");
   }
 }
+
+router.post("/register", function(req, res, next) {
+  const userData = new userModel ({
+    username: req.body.username,
+    name: req.body.name,
+    email: req.body.email,
+  });
+
+  userModel.register(userData, password)
+  .then(function(){
+    passport.authenicate("local"(req, res, function(){
+      res.redirect("/profile");
+    }))
+  })
+ });
 
 
 
