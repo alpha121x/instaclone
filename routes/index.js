@@ -8,7 +8,7 @@ const storyModel = require("./story");
 passport.use(new localStrategy(userModel.authenticate()));
 const upload = require("./multer");
 const utils = require("../utils/utils");
-const userModel = require("/users");
+const userModel = require("./users");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 
